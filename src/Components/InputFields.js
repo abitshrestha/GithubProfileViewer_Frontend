@@ -37,7 +37,7 @@ const InputField = () => {
       setIsLoading(true);
       console.log("waiting for data");
       const response = await axios.get(
-        `http://localhost:3001/api/user/${username}`
+        `https://githubprofileviewer-backend.onrender.com/api/user/${username}`
       );
       // console.log(response);
       const responseData=response.data;
