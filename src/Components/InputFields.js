@@ -39,16 +39,20 @@ const InputField = () => {
       const response = await axios.get(
         `https://githubprofileviewer-backend.onrender.com/api/user/${username}`
       );
-      console.log(response);
+      // console.log(response);
       const responseData=response.data;
       if(responseData.code==='ENOTFOUND'){
         resetUser();
         setError('The internet is not available');
       }
-      else if(responseData.code==="ERR_BAD_REQUEST"){
+      else if(responseData.code==="ERR_BAD_REQUEST" && responseData.message!='Request failed with status code 403'){
         resetUser();
-        console.log('check');
+        // console.log('check');
         setError('Is this user exists? Try again...');
+      }
+      else if(responseData.message==='Request failed with status code 403'){
+        resetUser();
+        setError('API has reached the limit.Try again after some amount of time');
       }
       else if(response.status===200){
         resetUser();
@@ -106,7 +110,7 @@ const InputField = () => {
           ) : (
             error && (
               <div className="erroring">
-                <p>{error}</p> {/* Ensure the error message is within a paragraph or other appropriate HTML element */}
+                <p>{error}</p> {}
               </div>
             )            )}
         </div>
