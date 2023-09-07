@@ -39,7 +39,7 @@ const InputField = () => {
       const response = await axios.get(
         `https://githubprofileviewer-backend.onrender.com/api/user/${username}`
       );
-      // console.log(response);
+      console.log(response);
       const responseData=response.data;
       if(responseData.code==='ENOTFOUND'){
         resetUser();
@@ -47,7 +47,7 @@ const InputField = () => {
       }
       else if(responseData.code==="ERR_BAD_REQUEST"){
         resetUser();
-        // console.log('check');
+        console.log('check');
         setError('Is this user exists? Try again...');
       }
       else if(response.status===200){
