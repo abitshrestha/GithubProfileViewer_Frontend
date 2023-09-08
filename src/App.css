@@ -184,6 +184,9 @@ span{
 .erroring p{
   font-size:1rem;
 }
+.sometime{
+  color:#0056b3;
+}
 
 @media (max-width: 576px) {
   .inner {
