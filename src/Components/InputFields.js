@@ -80,8 +80,8 @@ const InputField = () => {
             name="username"
           onBlur={blur}/>
           <button onClick={fetchUserProfile}>Search</button>
-          {isLoading?<p className="loading">Loading...</p>:""}
-        </div>
+          {isLoading?<div><p className="loading">Loading...</p><p className="sometime">Hold On!!This may take some time...</p></div>:""}        
+         </div>
         <div className={`generatedContent ${user||error ? "dis" : "none"}`}>
           {user ? (
             <div className="user-profile">
