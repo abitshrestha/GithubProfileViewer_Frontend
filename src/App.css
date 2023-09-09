@@ -253,7 +253,7 @@ span{
     width: 50vw; /* Adjust width for extra-large screens (e.g., desktop monitors) */
   }
   button {
-    margin-left: 40vw;
+    margin-left: 45vw;
     margin-top: -4.2rem;
   }
 }
